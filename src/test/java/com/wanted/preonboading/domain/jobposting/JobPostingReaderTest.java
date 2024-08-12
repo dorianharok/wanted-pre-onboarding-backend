@@ -49,10 +49,10 @@ class JobPostingReaderTest {
 
         // then
         assertThat(jobPostings)
-                .extracting("positionTitle", "reward", "jobDescription", "requiredSkill", "companyId")
+                .extracting("positionTitle", "reward", "jobDescription", "requiredSkill")
                 .containsExactlyInAnyOrder(
-                        tuple("테스트", 1000000, "테스트", "테스트", company.getId()),
-                        tuple("테스트2", 2000000, "테스트2", "테스트2", company.getId())
+                        tuple("테스트", 1000000, "테스트", "테스트"),
+                        tuple("테스트2", 2000000, "테스트2", "테스트2")
                 );
     }
 
@@ -83,8 +83,8 @@ class JobPostingReaderTest {
 
         // then
         assertThat(read)
-                .extracting("positionTitle", "reward", "jobDescription", "requiredSkill", "companyId")
-                .containsExactly("테스트", 1000000, "테스트", "테스트", company.getId());
+                .extracting("positionTitle", "reward", "jobDescription", "requiredSkill")
+                .containsExactly("테스트", 1000000, "테스트", "테스트");
     }
 
     @Test
@@ -96,7 +96,7 @@ class JobPostingReaderTest {
         // when & then
         assertThatThrownBy(() -> jobPostingReader.read(id))
                 .isInstanceOf(BusinessException.class)
-                .hasMessageContaining(ErrorCode.COMPANY_NOT_FOUND.getMessage());
+                .hasMessageContaining(ErrorCode.JOB_POSTING_NOT_FOUND.getMessage());
     }
 
     @Test
