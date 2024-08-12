@@ -30,6 +30,13 @@ public class JobPosting {
     @ManyToOne(fetch = FetchType.LAZY)
     private Company company;
 
+    public void update(JobPostingInfo info) {
+        this.positionTitle = info.positionTitle();
+        this.reward = info.reward();
+        this.jobDescription = info.jobDescription();
+        this.requiredSkill = info.requiredSkill();
+    }
+
     @Builder
     private JobPosting(String positionTitle, Integer reward, String jobDescription, String requiredSkill, Company company) {
         this.positionTitle = positionTitle;

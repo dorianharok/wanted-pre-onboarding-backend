@@ -42,6 +42,7 @@ class JobPostingAppenderTest {
         // given
         Company company = companyRepository.save(new Company("테스트"));
         JobPostingInfo jobPostingInfo = new JobPostingInfo(
+                null,
                 "백엔드 주니어 개발자",
                 1000000,
                 "원티드에서 주니어 개발자를 채용합니다...",
@@ -71,6 +72,7 @@ class JobPostingAppenderTest {
         // given
         Long companyId = 1L;
         JobPostingInfo jobPostingInfo = new JobPostingInfo(
+                null,
                 "백엔드 주니어 개발자",
                 1000000,
                 "원티드에서 주니어 개발자를 채용합니다...",

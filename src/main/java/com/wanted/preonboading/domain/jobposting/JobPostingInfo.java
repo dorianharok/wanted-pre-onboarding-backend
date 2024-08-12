@@ -5,6 +5,7 @@ import com.wanted.preonboading.domain.company.Company;
 import java.math.BigDecimal;
 
 public record JobPostingInfo(
+        Long id,
         String positionTitle,
         Integer reward,
         String jobDescription,
@@ -19,5 +20,16 @@ public record JobPostingInfo(
                 .requiredSkill(requiredSkill)
                 .company(company)
                 .build();
+    }
+
+    public static JobPostingInfo of(JobPosting jobPosting) {
+        return new JobPostingInfo(
+                jobPosting.getId(),
+                jobPosting.getPositionTitle(),
+                jobPosting.getReward(),
+                jobPosting.getJobDescription(),
+                jobPosting.getRequiredSkill(),
+                jobPosting.getCompany().getId()
+        );
     }
 }
