@@ -21,9 +21,6 @@ import static org.assertj.core.groups.Tuple.tuple;
 class JobPostingReaderTest {
 
     @Autowired
-    private JobPostingRemover jobPostingRemover;
-
-    @Autowired
     private JobPostingRepository jobPostingRepository;
 
     @Autowired
@@ -48,10 +45,10 @@ class JobPostingReaderTest {
         ));
 
         // when
-        List<JobPostingInfo> jobPostingInfos = jobPostingReader.readJobPostings();
+        List<JobPosting> jobPostings = jobPostingReader.readJobPostings();
 
         // then
-        assertThat(jobPostingInfos)
+        assertThat(jobPostings)
                 .extracting("positionTitle", "reward", "jobDescription", "requiredSkill", "companyId")
                 .containsExactlyInAnyOrder(
                         tuple("테스트", 1000000, "테스트", "테스트", company.getId()),
@@ -65,10 +62,10 @@ class JobPostingReaderTest {
         // given
 
         // when
-        List<JobPostingInfo> jobPostingInfos = jobPostingReader.readJobPostings();
+        List<JobPosting> jobPostings = jobPostingReader.readJobPostings();
 
         // then
-        assertThat(jobPostingInfos.size()).isZero();
+        assertThat(jobPostings.size()).isZero();
     }
 
     @Test
@@ -82,10 +79,10 @@ class JobPostingReaderTest {
         Long id = jobPosting.getId();
 
         // when
-        JobPostingInfo jobPostingInfo = jobPostingReader.read(id);
+        JobPosting read = jobPostingReader.read(id);
 
         // then
-        assertThat(jobPostingInfo)
+        assertThat(read)
                 .extracting("positionTitle", "reward", "jobDescription", "requiredSkill", "companyId")
                 .containsExactly("테스트", 1000000, "테스트", "테스트", company.getId());
     }
