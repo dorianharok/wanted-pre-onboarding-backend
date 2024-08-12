@@ -35,7 +35,7 @@ class JobPostingReaderTest {
     }
 
     @Test
-    @DisplayName("채용 공고를 읽어온다")
+    @DisplayName("채용공고를 읽어온다")
     void readJobPostings() {
         // given
         Company company = companyRepository.save(new Company("테스트회사"));
@@ -57,7 +57,7 @@ class JobPostingReaderTest {
     }
 
     @Test
-    @DisplayName("채용 공고가 없을 경우 빈 리스트를 반환한다.")
+    @DisplayName("채용공고가 없을 경우 빈 리스트를 반환한다.")
     void readJobPostings2() {
         // given
 
@@ -69,7 +69,7 @@ class JobPostingReaderTest {
     }
 
     @Test
-    @DisplayName("채용 공고 Id로 채용 공고 내용을 반환한다.")
+    @DisplayName("채용공고 Id로 채용공고 내용을 반환한다.")
     void read() {
         // given
         Company company = companyRepository.save(new Company("테스트회사"));
@@ -88,7 +88,7 @@ class JobPostingReaderTest {
     }
 
     @Test
-    @DisplayName("채용 공고 Id가 없는 경우 예외가 발생한다.")
+    @DisplayName("채용공고 Id가 없는 경우 예외가 발생한다.")
     void read2() {
         // given
         Long id = 1L;

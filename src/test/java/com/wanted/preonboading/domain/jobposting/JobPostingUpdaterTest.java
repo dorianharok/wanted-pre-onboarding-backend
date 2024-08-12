@@ -30,7 +30,7 @@ class JobPostingUpdaterTest {
     }
 
     @Test
-    @DisplayName("채용 공고를 수정한다.")
+    @DisplayName("채용공고를 수정한다.")
     void update() {
         // given
         Company company = companyRepository.save(new Company("테스트회사"));

@@ -33,7 +33,7 @@ class JobPostingRemoverTest {
     }
 
     @Test
-    @DisplayName("채용 공고를 삭제한다.")
+    @DisplayName("채용공고를 삭제한다.")
     void remove() {
         // given
         Company company = companyRepository.save(new Company("테스트회사"));

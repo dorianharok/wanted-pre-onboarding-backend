@@ -37,7 +37,7 @@ class JobPostingAppenderTest {
     }
 
     @Test
-    @DisplayName("채용 공고를 등록한다.")
+    @DisplayName("채용공고를 등록한다.")
     void append() {
         // given
         Company company = companyRepository.save(new Company("테스트"));
@@ -67,7 +67,7 @@ class JobPostingAppenderTest {
     }
 
     @Test
-    @DisplayName("회사가 존재하지 않는 경우 채용 공고를 등록할 수 없다.")
+    @DisplayName("회사가 존재하지 않는 경우 채용공고를 등록할 수 없다.")
     void append2() {
         // given
         Long companyId = 1L;
