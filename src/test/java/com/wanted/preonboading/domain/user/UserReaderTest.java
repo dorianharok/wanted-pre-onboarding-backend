@@ -35,10 +35,10 @@ class UserReaderTest {
         Long id = user.getId();
 
         // when
-        UserInfo read = userReader.read(id);
+        User read = userReader.read(id);
 
         // then
-        assertThat(read.username()).isEqualTo("유저");
+        assertThat(read.getUsername()).isEqualTo("유저");
     }
 
     @Test

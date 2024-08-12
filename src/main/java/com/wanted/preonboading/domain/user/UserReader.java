@@ -11,11 +11,9 @@ import org.springframework.stereotype.Component;
 public class UserReader {
     private final UserRepository userRepository;
 
-    public UserInfo read(Long userId) {
-        User user = userRepository.findById(userId).orElseThrow(
+    public User read(Long userId) {
+        return userRepository.findById(userId).orElseThrow(
                 () -> new BusinessException(ErrorCode.USER_NOT_FOUND)
         );
-
-        return UserInfo.of(user);
     }
 }
