@@ -14,4 +14,8 @@ public class Company {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
     private String name;
+
+    public Company(String name) {
+        this.name = name;
+    }
 }
