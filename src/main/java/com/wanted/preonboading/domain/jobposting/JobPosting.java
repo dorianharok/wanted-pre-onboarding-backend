@@ -20,7 +20,7 @@ public class JobPosting {
     @Column(name = "position_title", nullable = false)
     private String positionTitle;
     @Column(nullable = false)
-    private BigDecimal reward;
+    private Integer reward;
     @Lob
     @Column(name = "job_description", nullable = false)
     private String jobDescription;
@@ -28,11 +28,10 @@ public class JobPosting {
     private String requiredSkill;
 
     @ManyToOne(fetch = FetchType.LAZY)
-    @Column(name = "company_id", nullable = false, updatable = false)
     private Company company;
 
     @Builder
-    private JobPosting(String positionTitle, BigDecimal reward, String jobDescription, String requiredSkill, Company company) {
+    private JobPosting(String positionTitle, Integer reward, String jobDescription, String requiredSkill, Company company) {
         this.positionTitle = positionTitle;
         this.reward = reward;
         this.jobDescription = jobDescription;
