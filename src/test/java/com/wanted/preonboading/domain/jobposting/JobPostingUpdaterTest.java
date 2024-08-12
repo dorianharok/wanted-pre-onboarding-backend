@@ -46,12 +46,13 @@ class JobPostingUpdaterTest {
         );
 
         // when
-        JobPostingInfo info = jobPostingUpdater.update(updateInfo);
+        JobPosting jobPosting1 = jobPostingUpdater.update(updateInfo);
 
         // then
         JobPostingInfo find = JobPostingInfo.of(jobPostingRepository.findById(id).get());
-        assertThat(find).isEqualTo(info);
-        assertThat(find).isEqualTo(updateInfo);
+        assertThat(find)
+                .extracting("id", "positionTitle", "reward", "jobDescription", "requiredSkill")
+                .containsExactly(id, updateInfo.positionTitle(), updateInfo.reward(), updateInfo.jobDescription(), updateInfo.requiredSkill());
     }
 
     private JobPosting createJobPosting(String positionTitle, Integer reward, String jobDescription, String requiredSkill, Company company) {
