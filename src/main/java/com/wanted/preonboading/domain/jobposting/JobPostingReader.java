@@ -13,17 +13,13 @@ import java.util.List;
 public class JobPostingReader {
     private final JobPostingRepository jobPostingRepository;
 
-    public List<JobPostingInfo> readJobPostings() {
-        return jobPostingRepository.findAll().stream()
-                .map(JobPostingInfo::of)
-                .toList();
+    public List<JobPosting> readJobPostings() {
+        return jobPostingRepository.findAll();
     }
 
-    public JobPostingInfo read(Long postingId) {
-        JobPosting jobPosting = jobPostingRepository.findById(postingId)
+    public JobPosting read(Long postingId) {
+        return jobPostingRepository.findById(postingId)
                 .orElseThrow(() -> new BusinessException(ErrorCode.JOB_POSTING_NOT_FOUND));
-
-        return JobPostingInfo.of(jobPosting);
     }
 
     public List<Long> getOtherPostingIds(Long companyId, Long postingId) {
